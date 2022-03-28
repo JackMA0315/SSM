@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qf.mapper.ShopMapper">
+    <resultMap id="shopMap" type="shop">
+        <id column="shop_id" property="shopId"></id>
+        <result column="shop_name" property="shopName"></result>
+        <result column="shop_price" property="shopPrice"></result>
+        <result column="shop_desc" property="shopDesc"></result>
+    </resultMap>
+    <sql id="selectShop">
+            select * from shop
+        </sql>
+    <select id="findAll" resultMap="shopMap">
+        <include refid="selectShop"></include>
+    </select>
+
+    <!--<delete id="delete" parameterMap="java.lang.Integer">
+        delete from shop where shop_id = #{shopId}
+    </delete>-->
+   <!-- <sql id="delete">
+        delete from shop where shop_id = #{shop_id}
+    </sql>-->
+</mapper>
